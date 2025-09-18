@@ -7,11 +7,7 @@ import AnimatedIndicator from "./animated-indicator"
 import { useActiveSection } from "./hooks/use-active-section"
 import { useIndicatorPosition } from "./hooks/use-indicator-position"
 
-interface NavbarProps {
-  activeSection?: string
-}
-
-export default function Navbar({ activeSection: propActiveSection }: NavbarProps) {
+export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
 
   const navItems = [
