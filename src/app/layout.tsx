@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "./components/navbar";
 import { JetBrains_Mono, Open_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
