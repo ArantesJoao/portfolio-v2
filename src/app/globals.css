@@ -1,26 +1,117 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/* General */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: #1c1c22;
+  --color-foreground: #fff;
+  --font-sans: var(--font-open-sans);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-open-sans);
+}
+
+/* Dev variable */
+@utility show-div {
+  border: 1px solid red;
+}
+
+/* Experience card backgrounds */
+@utility bg-experience-card-outer {
+  background: radial-gradient(circle, rgba(147,51,234,0.08) 0%, rgba(147,51,234,0.04) 30%, rgba(147,51,234,0.02) 60%, transparent 100%);
+}
+
+@utility bg-experience-card-inner {
+  background: radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(147,51,234,0.04) 0%, rgba(147,51,234,0.015) 40%, transparent 70%);
+}
+
+/* Rotation */
+@keyframes spin-linear {
+  to { transform: rotate(360deg); }
+}
+
+@utility spin-slower {
+  animation: spin-linear 30s linear infinite;
+}
+
+@utility spin-slow {
+  animation: spin-linear 18s linear infinite;
+}
+
+/* Specific dash patterns - first one is their size, second the spacing */
+@utility stroke-dash-long {
+  stroke-dasharray: 130 110;
+}
+
+@utility stroke-dash-short {
+  stroke-dasharray: 30 140;
+}
+
+/* Fade-in */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-fade-in {
+  animation: fade-in 1500ms ease-out forwards;
+}
+
+/* Subtle floating loop */
+@keyframes float-y {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@utility animate-float {
+  animation: float-y 4s ease-in-out 1.5s infinite;
+}
+
+/* Combined: fade in once, then float forever */
+@utility animate-fade-and-float {
+  animation: fade-in 1500ms ease-out forwards, float-y 3.5s ease-in-out 1.5s infinite;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
