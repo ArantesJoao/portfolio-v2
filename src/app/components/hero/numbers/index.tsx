@@ -5,15 +5,15 @@ const Numbers = () => {
   return (
     <div className="w-full">
       {/* Mobile */}
-      <div className="xl:hidden font-sans flex items-center justify-center gap-10 mt-10">
+      <div className="xl:hidden font-sans flex items-center justify-center gap-5 mt-10">
         <div className="flex flex-col gap-4">
-          <SingleData number={myAge} text={"Age"} />
           <SingleData number={myYOE} text={"Years of experience"} />
+          <SingleData number={myAge} text={"Age"} />
         </div>
 
         <div className="flex flex-col gap-4">
-          <SingleData number={30} preffix="+" text={"Projects contributed"} />
           <SingleData number={140} preffix="+" suffix="M" text={"Impacted users"} />
+          <SingleData number={30} preffix="+" text={"Projects contributed"} />
         </div>
       </div>
 
