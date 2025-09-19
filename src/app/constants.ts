@@ -224,7 +224,7 @@ export const techStackData: TechStackItem[] = [
     category: "Frontend",
     proficiency: "Expert",
     className: "bg-slate-800",
-    imageClassName: "p-1"
+    imageClassName: "p-0.5"
   },
   {
     name: "Next.js",
@@ -243,7 +243,7 @@ export const techStackData: TechStackItem[] = [
     category: "Frontend",
     proficiency: "Expert",
     className: "bg-white",
-    imageClassName: "p-1"
+    imageClassName: "p-0.5"
   },
   {
     name: "Styled Components",
@@ -253,7 +253,7 @@ export const techStackData: TechStackItem[] = [
     category: "Frontend",
     proficiency: "Advanced",
     className: "bg-white",
-    imageClassName: "p-1"
+    imageClassName: "p-0.5"
   },
   {
     name: "React Native",
@@ -263,7 +263,7 @@ export const techStackData: TechStackItem[] = [
     category: "Frontend",
     proficiency: "Intermediate",
     className: "bg-slate-800",
-    imageClassName: "p-1"
+    imageClassName: "p-0.5"
   },
   {
     name: "Angular",
@@ -284,7 +284,7 @@ export const techStackData: TechStackItem[] = [
     category: "Backend",
     proficiency: "Advanced",
     className: "bg-white",
-    imageClassName: "p-1"
+    imageClassName: "p-0.5"
   },
   {
     name: "Node.js",
@@ -294,7 +294,7 @@ export const techStackData: TechStackItem[] = [
     category: "Backend",
     proficiency: "Advanced",
     className: "bg-white",
-    imageClassName: "p-1"
+    imageClassName: "p-0.5"
   },
   {
     name: "Express",
@@ -304,7 +304,7 @@ export const techStackData: TechStackItem[] = [
     category: "Backend",
     proficiency: "Advanced",
     className: "bg-white",
-    imageClassName: "p-1.5"
+    imageClassName: "p-1"
   },
   {
     name: ".NET",
@@ -314,7 +314,7 @@ export const techStackData: TechStackItem[] = [
     category: "Backend",
     proficiency: "Intermediate",
     className: "bg-white",
-    imageClassName: "p-1"
+    imageClassName: "p-0.5"
   },
   // Database
   {
@@ -325,7 +325,7 @@ export const techStackData: TechStackItem[] = [
     category: "Database",
     proficiency: "Expert",
     className: "bg-white",
-    imageClassName: "p-1"
+    imageClassName: "p-0.5"
   },
   {
     name: "MySQL",

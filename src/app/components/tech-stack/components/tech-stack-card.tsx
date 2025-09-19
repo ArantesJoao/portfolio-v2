@@ -19,6 +19,8 @@ const CUSTOM_ICONS = {
   aws: { component: FaAws, color: "text-orange-500" },
   azure: { component: VscAzureDevops, color: "text-blue-500" },
   "csharp-custom": { component: TbBrandCSharp, color: "text-purple-500" },
+  typescript: { component: null, color: null }, // Uses custom ts.svg file
+  javascript: { component: null, color: null }, // Uses custom js.svg file
 } as const
 
 // Proficiency color mapping
@@ -38,7 +40,7 @@ const renderCustomIcon = (slug: string): React.ReactNode => {
 
   if (!iconConfig) return null
 
-  // Special case for Cursor (uses SVG file)
+  // Special cases for SVG files
   if (slug === "cursor") {
     return (
       <div className="w-full h-full">
@@ -47,6 +49,32 @@ const renderCustomIcon = (slug: string): React.ReactNode => {
           alt="Cursor"
           fill
           className="transition-transform duration-300 group-hover:scale-110"
+        />
+      </div>
+    )
+  }
+
+  if (slug === "typescript") {
+    return (
+      <div className="w-full h-full">
+        <Image
+          src="/ts.svg"
+          alt="TypeScript"
+          fill
+          className="transition-transform duration-300 group-hover:scale-110 p-0.5 bg-[#3178C6]"
+        />
+      </div>
+    )
+  }
+
+  if (slug === "javascript") {
+    return (
+      <div className="w-full h-full">
+        <Image
+          src="/js.svg"
+          alt="JavaScript"
+          fill
+          className="transition-transform duration-300 group-hover:scale-110 p-0.5 bg-[#F7DF1E]"
         />
       </div>
     )
@@ -63,6 +91,8 @@ const isCustomIcon = (slug: string): boolean => {
   return Object.keys(CUSTOM_ICONS).includes(slug)
 }
 
+
+
 export const TechStackCard: React.FC<TechStackCardProps> = ({
   name,
   slug,
@@ -76,7 +106,7 @@ export const TechStackCard: React.FC<TechStackCardProps> = ({
     <div className="group inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-purple-400/30 transition-all duration-300 cursor-pointer">
       {/* Tech Icon */}
       <div
-        className={`relative w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${className}`}
+        className={`relative w-5 h-5 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 ${className}`}
       >
         {isCustomIcon(slug) ? (
           <div className={`w-full h-full ${imageClassName} transition-transform duration-300 group-hover:scale-110`}>
