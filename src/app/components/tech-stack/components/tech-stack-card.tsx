@@ -9,7 +9,7 @@ import { VscAzureDevops } from "react-icons/vsc"
 import { BiLogoVisualStudio } from "react-icons/bi"
 import { TbBrandCSharp } from "react-icons/tb"
 
-interface TechStackCardProps extends TechStackItem { }
+type TechStackCardProps = TechStackItem
 
 // Icon configuration mapping
 const CUSTOM_ICONS = {

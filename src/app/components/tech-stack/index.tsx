@@ -44,7 +44,7 @@ const TechStack = () => {
 
       {selectedCategory === "All" ? (
         <div className="space-y-6">
-          {Object.entries(groupedByCategory()).map(([category, techs], index) => (
+          {Object.entries(groupedByCategory()).map(([category, techs]) => (
             <div key={category}>
               {/* Category as visual section with subtle background */}
               <div className="relative">
