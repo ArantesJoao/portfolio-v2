@@ -9,7 +9,12 @@ interface SingleDataProps {
   suffix?: string
 }
 
-const SingleData = ({ number, text, preffix, suffix }: SingleDataProps) => {
+const SingleData = ({
+  number,
+  text,
+  preffix = "",
+  suffix = ""
+}: SingleDataProps) => {
   const [displayNumber, setDisplayNumber] = useState(0)
 
   useEffect(() => {
@@ -32,13 +37,33 @@ const SingleData = ({ number, text, preffix, suffix }: SingleDataProps) => {
   }, [number])
 
   return (
-    <div className="flex gap-3 lg:gap-3.5 items-center hover:scale-105 cursor-pointer transition-all duration-300 group-hover:blur-xs hover:!blur-none">
-      <div className="font-bold text-3xl md:text-5xl lg:text-6xl animate-count-up">
-        {preffix}{displayNumber}{suffix}
+    <div className="group flex flex-col items-center text-center space-y-2 relative">
+      {/* Subtle accent line that appears on hover */}
+      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent transition-all duration-700 group-hover:w-16" />
+
+      {/* Number */}
+      <div className="flex items-baseline justify-center gap-1">
+        {preffix && (
+          <span className="text-2xl md:text-3xl lg:text-4xl font-medium text-purple-400/80 transition-colors duration-500 group-hover:text-purple-300">
+            {preffix}
+          </span>
+        )}
+        <span className="font-bold text-3xl md:text-4xl lg:text-5xl text-white transition-all duration-500 group-hover:text-purple-100 group-hover:scale-105">
+          {displayNumber}
+        </span>
+        {suffix && (
+          <span className="font-bold text-3xl md:text-4xl lg:text-5xl text-purple-400/80 transition-colors duration-500 group-hover:text-purple-300">
+            {suffix}
+          </span>
+        )}
       </div>
-      <div className="text-md md:text-xl lg:text-2xl max-w-20 md:max-w-full leading-4 md:leading-6">
+
+      {/* Text */}
+      <div className="text-xs md:text-sm text-gray-400 leading-relaxed transition-colors duration-500 group-hover:text-gray-300 max-w-20 md:max-w-none">
         {text.split('\n').map((line, index) => (
-          <div key={index}>{line}</div>
+          <div key={index}>
+            {line}
+          </div>
         ))}
       </div>
     </div>

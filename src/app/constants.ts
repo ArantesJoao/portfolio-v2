@@ -182,3 +182,221 @@ export const socialLinksData: SocialLinkData[] = [
     icon: "download"
   }
 ]
+
+export interface TechStackItem {
+  name: string
+  slug: string
+  color: string
+  description: string
+  category: "Frontend" | "Backend" | "Database" | "Tools" | "Cloud"
+  proficiency: "Expert" | "Advanced" | "Intermediate"
+  className?: string
+  imageClassName?: string
+}
+
+export const techStackData: TechStackItem[] = [
+  // Frontend
+  {
+    name: "React",
+    slug: "react",
+    color: "61DAFB",
+    description: "Building modern user interfaces with component-based architecture",
+    category: "Frontend",
+    proficiency: "Expert",
+    className: "bg-slate-800",
+    imageClassName: "p-1"
+  },
+  {
+    name: "Next.js",
+    slug: "nextdotjs",
+    color: "000000",
+    description: "Full-stack React framework for production-ready applications",
+    category: "Frontend",
+    proficiency: "Expert",
+    className: "bg-white"
+  },
+  {
+    name: "TypeScript",
+    slug: "typescript",
+    color: "3178C6",
+    description: "Type-safe JavaScript for better development experience",
+    category: "Frontend",
+    proficiency: "Advanced",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
+    name: "Tailwind CSS",
+    slug: "tailwindcss",
+    color: "06B6D4",
+    description: "Utility-first CSS framework for rapid UI development",
+    category: "Frontend",
+    proficiency: "Expert",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
+    name: "React Native",
+    slug: "react",
+    color: "61DAFB",
+    description: "Cross-platform mobile development with React",
+    category: "Frontend",
+    proficiency: "Advanced",
+    className: "bg-slate-800",
+    imageClassName: "p-1"
+  },
+  {
+    name: "Angular",
+    slug: "angular",
+    color: "DD0031",
+    description: "Enterprise-grade frontend framework",
+    category: "Frontend",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  // Backend
+  {
+    name: "Node.js",
+    slug: "nodedotjs",
+    color: "5FA04E",
+    description: "JavaScript runtime for scalable server-side applications",
+    category: "Backend",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
+    name: "Express",
+    slug: "express",
+    color: "000000",
+    description: "Fast, unopinionated web framework for Node.js",
+    category: "Backend",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-1.5"
+  },
+  {
+    name: "C#",
+    slug: "csharp",
+    color: "512BD4",
+    description: "Modern object-oriented programming language",
+    category: "Backend",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  // Database
+  {
+    name: "MongoDB",
+    slug: "mongodb",
+    color: "47A248",
+    description: "NoSQL database for flexible, scalable data storage",
+    category: "Database",
+    proficiency: "Advanced",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
+    name: "MySQL",
+    slug: "mysql",
+    color: "4479A1",
+    description: "Reliable relational database management system",
+    category: "Database",
+    proficiency: "Advanced",
+    className: "bg-white",
+    imageClassName: "p-1.5"
+  },
+  {
+    name: "Prisma",
+    slug: "prisma",
+    color: "2D3748",
+    description: "Type-safe database toolkit and ORM",
+    category: "Database",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  // Tools
+  {
+    name: "Git",
+    slug: "git",
+    color: "F05032",
+    description: "Version control system for collaborative development",
+    category: "Tools",
+    proficiency: "Expert",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
+    name: "Vite",
+    slug: "vite",
+    color: "646CFF",
+    description: "Fast build tool for modern web development",
+    category: "Tools",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
+    name: "Expo",
+    slug: "expo",
+    color: "1C2024",
+    description: "Platform for building React Native applications",
+    category: "Tools",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-2"
+  },
+  {
+    name: "Postman",
+    slug: "postman",
+    color: "FF6C37",
+    description: "API development and testing platform",
+    category: "Tools",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
+    name: "Insomnia",
+    slug: "insomnia",
+    color: "4000BF",
+    description: "API client for REST and GraphQL testing",
+    category: "Tools",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
+    name: "Buildkite",
+    slug: "buildkite",
+    color: "14CC80",
+    description: "CI/CD platform for automated testing and deployment",
+    category: "Tools",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
+    name: "Chromatic",
+    slug: "chromatic",
+    color: "FC521F",
+    description: "Visual testing and review for UI components",
+    category: "Tools",
+    proficiency: "Intermediate",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  // Cloud
+  {
+    name: "Vercel",
+    slug: "vercel",
+    color: "000000",
+    description: "Cloud platform for frontend deployment and hosting",
+    category: "Cloud",
+    proficiency: "Advanced",
+    className: "bg-white",
+    imageClassName: "p-2"
+  }
+]

@@ -6,6 +6,9 @@ export const useIndicatorPosition = (activeSection: string) => {
 
   // Update indicator position when active section changes
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined') return
+
     const updateIndicator = () => {
       const activeElement = navItemsRef.current[activeSection]
       if (activeElement) {

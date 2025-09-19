@@ -9,6 +9,9 @@ export const useActiveSection = (navItems: NavItem[]) => {
   const [activeSection, setActiveSection] = useState<string>("top")
 
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined') return
+
     const observer = new IntersectionObserver(
       (entries) => {
         // Check if we're near the bottom of the page for "projects" section
