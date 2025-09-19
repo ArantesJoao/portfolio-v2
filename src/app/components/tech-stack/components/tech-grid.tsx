@@ -9,14 +9,9 @@ interface TechGridProps {
 
 export const TechGrid = ({ filteredTechStack }: TechGridProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="flex flex-wrap gap-3 justify-center">
       {filteredTechStack.map((tech, index) => (
-        <div
-          key={`${tech.name}-${index}`}
-          className="transform transition-all duration-300"
-        >
-          <TechStackCard {...tech} />
-        </div>
+        <TechStackCard key={`${tech.name}-${index}`} {...tech} />
       ))}
     </div>
   )

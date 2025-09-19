@@ -3,85 +3,103 @@
 import type React from "react"
 import Image from "next/image"
 import { TechStackItem } from "@/app/constants"
-import { BaseCard } from "@/app/components/ui/base-card"
+import { DiVisualstudio } from "react-icons/di"
+import { FaAws } from "react-icons/fa"
+import { VscAzureDevops } from "react-icons/vsc"
+import { BiLogoVisualStudio } from "react-icons/bi"
+import { TbBrandCSharp } from "react-icons/tb"
 
 interface TechStackCardProps extends TechStackItem { }
+
+// Icon configuration mapping
+const CUSTOM_ICONS = {
+  vscode: { component: BiLogoVisualStudio, color: "text-blue-500" },
+  cursor: { component: null, color: null }, // Special case: uses SVG file
+  visualstudio: { component: DiVisualstudio, color: "text-purple-600" },
+  aws: { component: FaAws, color: "text-orange-500" },
+  azure: { component: VscAzureDevops, color: "text-blue-500" },
+  "csharp-custom": { component: TbBrandCSharp, color: "text-purple-500" },
+} as const
+
+// Proficiency color mapping
+const PROFICIENCY_COLORS = {
+  Expert: "bg-green-400",
+  Advanced: "bg-blue-400",
+  Intermediate: "bg-orange-400",
+} as const
+
+// Helper functions
+const getProficiencyColor = (proficiency: TechStackItem['proficiency']): string => {
+  return PROFICIENCY_COLORS[proficiency] || "bg-gray-400"
+}
+
+const renderCustomIcon = (slug: string): React.ReactNode => {
+  const iconConfig = CUSTOM_ICONS[slug as keyof typeof CUSTOM_ICONS]
+
+  if (!iconConfig) return null
+
+  // Special case for Cursor (uses SVG file)
+  if (slug === "cursor") {
+    return (
+      <div className="w-full h-full">
+        <Image
+          src="/cursor-ai.svg"
+          alt="Cursor"
+          fill
+          className="transition-transform duration-300 group-hover:scale-110"
+        />
+      </div>
+    )
+  }
+
+  // Regular react-icons components
+  const IconComponent = iconConfig.component
+  if (!IconComponent) return null
+
+  return <IconComponent className={`w-full h-full ${iconConfig.color}`} />
+}
+
+const isCustomIcon = (slug: string): boolean => {
+  return Object.keys(CUSTOM_ICONS).includes(slug)
+}
 
 export const TechStackCard: React.FC<TechStackCardProps> = ({
   name,
   slug,
   color,
-  description,
-  category,
   proficiency,
   className = "bg-white",
   imageClassName = "",
 }) => {
 
-  const getProficiencyColor = (proficiency: string) => {
-    switch (proficiency) {
-      case "Expert":
-        return "bg-green-500/20 text-green-200 border-green-400/30 hover:bg-green-500/30"
-      case "Advanced":
-        return "bg-blue-500/20 text-blue-200 border-blue-400/30 hover:bg-blue-500/30"
-      case "Intermediate":
-        return "bg-orange-500/20 text-orange-200 border-orange-400/30 hover:bg-orange-500/30"
-      default:
-        return "bg-gray-500/20 text-gray-200 border-gray-400/30 hover:bg-gray-500/30"
-    }
-  }
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "Frontend":
-        return "bg-purple-500/20 text-purple-200 border-purple-400/30"
-      case "Backend":
-        return "bg-emerald-500/20 text-emerald-200 border-emerald-400/30"
-      case "Database":
-        return "bg-cyan-500/20 text-cyan-200 border-cyan-400/30"
-      case "Tools":
-        return "bg-yellow-500/20 text-yellow-200 border-yellow-400/30"
-      case "Cloud":
-        return "bg-indigo-500/20 text-indigo-200 border-indigo-400/30"
-      default:
-        return "bg-gray-500/20 text-gray-200 border-gray-400/30"
-    }
-  }
-
   return (
-    <BaseCard className="h-full cursor-pointer">
-      {/* Tech Icon and Name */}
-      <div className="flex items-center gap-4 mb-4">
-        <div
-          className={`relative w-14 h-14 rounded-xl backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all duration-500 group-hover:border-purple-400/40 group-hover:shadow-lg group-hover:shadow-purple-500/20 ${className}`}
-        >
+    <div className="group inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-purple-400/30 transition-all duration-300 cursor-pointer">
+      {/* Tech Icon */}
+      <div
+        className={`relative w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${className}`}
+      >
+        {isCustomIcon(slug) ? (
+          <div className={`w-full h-full ${imageClassName} transition-transform duration-300 group-hover:scale-110`}>
+            {renderCustomIcon(slug)}
+          </div>
+        ) : (
           <Image
             unoptimized
             src={`https://cdn.simpleicons.org/${slug}/${color}`}
             alt={name}
             fill
-            className={`${imageClassName} transition-transform duration-500 group-hover:scale-110`}
+            className={`${imageClassName} transition-transform duration-300 group-hover:scale-110`}
           />
-        </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-semibold text-white mb-1 transition-colors duration-500">
-            {name}
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            <span className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium backdrop-blur-sm transition-all duration-500 border ${getCategoryColor(category)}`}>
-              {category}
-            </span>
-            <span className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium backdrop-blur-sm transition-all duration-500 border ${getProficiencyColor(proficiency)}`}>
-              {proficiency}
-            </span>
-          </div>
-        </div>
+        )}
       </div>
 
-      {/* Description */}
-      <p className="text-sm text-gray-300 leading-relaxed text-pretty transition-colors duration-500 group-hover:text-gray-200">
-        {description}
-      </p>
-    </BaseCard>
+      {/* Name */}
+      <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
+        {name}
+      </span>
+
+      {/* Proficiency Dot */}
+      <div className={`w-2 h-2 rounded-full flex-shrink-0 ${getProficiencyColor(proficiency)} opacity-70 group-hover:opacity-100 transition-opacity duration-300`} />
+    </div>
   )
 }

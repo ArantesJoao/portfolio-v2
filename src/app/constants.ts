@@ -197,6 +197,26 @@ export interface TechStackItem {
 export const techStackData: TechStackItem[] = [
   // Frontend
   {
+    name: "JavaScript",
+    slug: "javascript",
+    color: "F7DF1E",
+    description: "Dynamic programming language for web development",
+    category: "Frontend",
+    proficiency: "Expert",
+    className: "bg-black",
+    imageClassName: "p-1"
+  },
+  {
+    name: "TypeScript",
+    slug: "typescript",
+    color: "3178C6",
+    description: "Type-safe JavaScript for better development experience",
+    category: "Frontend",
+    proficiency: "Expert",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
     name: "React",
     slug: "react",
     color: "61DAFB",
@@ -216,16 +236,6 @@ export const techStackData: TechStackItem[] = [
     className: "bg-white"
   },
   {
-    name: "TypeScript",
-    slug: "typescript",
-    color: "3178C6",
-    description: "Type-safe JavaScript for better development experience",
-    category: "Frontend",
-    proficiency: "Advanced",
-    className: "bg-white",
-    imageClassName: "p-1"
-  },
-  {
     name: "Tailwind CSS",
     slug: "tailwindcss",
     color: "06B6D4",
@@ -236,12 +246,22 @@ export const techStackData: TechStackItem[] = [
     imageClassName: "p-1"
   },
   {
+    name: "Styled Components",
+    slug: "styledcomponents",
+    color: "DB7093",
+    description: "CSS-in-JS library for styling React components",
+    category: "Frontend",
+    proficiency: "Advanced",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
     name: "React Native",
     slug: "react",
     color: "61DAFB",
     description: "Cross-platform mobile development with React",
     category: "Frontend",
-    proficiency: "Advanced",
+    proficiency: "Intermediate",
     className: "bg-slate-800",
     imageClassName: "p-1"
   },
@@ -257,12 +277,22 @@ export const techStackData: TechStackItem[] = [
   },
   // Backend
   {
+    name: "C#",
+    slug: "csharp-custom",
+    color: "512BD4",
+    description: "Modern object-oriented programming language",
+    category: "Backend",
+    proficiency: "Advanced",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
     name: "Node.js",
     slug: "nodedotjs",
     color: "5FA04E",
     description: "JavaScript runtime for scalable server-side applications",
     category: "Backend",
-    proficiency: "Intermediate",
+    proficiency: "Advanced",
     className: "bg-white",
     imageClassName: "p-1"
   },
@@ -272,15 +302,15 @@ export const techStackData: TechStackItem[] = [
     color: "000000",
     description: "Fast, unopinionated web framework for Node.js",
     category: "Backend",
-    proficiency: "Intermediate",
+    proficiency: "Advanced",
     className: "bg-white",
     imageClassName: "p-1.5"
   },
   {
-    name: "C#",
-    slug: "csharp",
+    name: ".NET",
+    slug: "dotnet",
     color: "512BD4",
-    description: "Modern object-oriented programming language",
+    description: "Microsoft's development platform",
     category: "Backend",
     proficiency: "Intermediate",
     className: "bg-white",
@@ -293,7 +323,7 @@ export const techStackData: TechStackItem[] = [
     color: "47A248",
     description: "NoSQL database for flexible, scalable data storage",
     category: "Database",
-    proficiency: "Advanced",
+    proficiency: "Expert",
     className: "bg-white",
     imageClassName: "p-1"
   },
@@ -303,9 +333,9 @@ export const techStackData: TechStackItem[] = [
     color: "4479A1",
     description: "Reliable relational database management system",
     category: "Database",
-    proficiency: "Advanced",
+    proficiency: "Intermediate",
     className: "bg-white",
-    imageClassName: "p-1.5"
+    imageClassName: "p-1"
   },
   {
     name: "Prisma",
@@ -329,24 +359,64 @@ export const techStackData: TechStackItem[] = [
     imageClassName: "p-1"
   },
   {
-    name: "Vite",
-    slug: "vite",
-    color: "646CFF",
-    description: "Fast build tool for modern web development",
+    name: "GitHub",
+    slug: "github",
+    color: "181717",
+    description: "Git repository hosting service",
     category: "Tools",
-    proficiency: "Intermediate",
+    proficiency: "Expert",
     className: "bg-white",
     imageClassName: "p-1"
   },
   {
-    name: "Expo",
-    slug: "expo",
-    color: "1C2024",
-    description: "Platform for building React Native applications",
+    name: "Bitbucket",
+    slug: "bitbucket",
+    color: "0052CC",
+    description: "Git repository hosting service",
     category: "Tools",
-    proficiency: "Intermediate",
+    proficiency: "Expert",
     className: "bg-white",
-    imageClassName: "p-2"
+    imageClassName: "p-1"
+  },
+  {
+    name: "Cursor",
+    slug: "cursor",
+    color: "000000",
+    description: "AI-powered code editor",
+    category: "Tools",
+    proficiency: "Expert",
+    className: "bg-white",
+    imageClassName: "p-1"
+  },
+  {
+    name: "VS Code",
+    slug: "vscode",
+    color: "007ACC",
+    description: "Code editor for modern development",
+    category: "Tools",
+    proficiency: "Expert",
+    className: "bg-white",
+    imageClassName: "p-0.5"
+  },
+  {
+    name: "Visual Studio",
+    slug: "visualstudio",
+    color: "5C2D91",
+    description: "Integrated development environment",
+    category: "Tools",
+    proficiency: "Advanced",
+    className: "bg-white",
+    imageClassName: "p-0.5"
+  },
+  {
+    name: "Jira",
+    slug: "jira",
+    color: "0052CC",
+    description: "Project management and issue tracking",
+    category: "Tools",
+    proficiency: "Advanced",
+    className: "bg-white",
+    imageClassName: "p-1"
   },
   {
     name: "Postman",
@@ -369,20 +439,20 @@ export const techStackData: TechStackItem[] = [
     imageClassName: "p-1"
   },
   {
-    name: "Buildkite",
-    slug: "buildkite",
-    color: "14CC80",
-    description: "CI/CD platform for automated testing and deployment",
+    name: "Expo",
+    slug: "expo",
+    color: "1C2024",
+    description: "Platform for building React Native applications",
     category: "Tools",
     proficiency: "Intermediate",
     className: "bg-white",
     imageClassName: "p-1"
   },
   {
-    name: "Chromatic",
-    slug: "chromatic",
-    color: "FC521F",
-    description: "Visual testing and review for UI components",
+    name: "Vite",
+    slug: "vite",
+    color: "646CFF",
+    description: "Fast build tool for modern web development",
     category: "Tools",
     proficiency: "Intermediate",
     className: "bg-white",
@@ -397,6 +467,33 @@ export const techStackData: TechStackItem[] = [
     category: "Cloud",
     proficiency: "Advanced",
     className: "bg-white",
-    imageClassName: "p-2"
-  }
+    imageClassName: "p-1"
+  },
+  {
+    name: "AWS",
+    slug: "aws",
+    color: "232F3E",
+    description: "Cloud platform for backend deployment and hosting",
+    category: "Cloud",
+    proficiency: "Intermediate",
+    imageClassName: "p-[3px]"
+  },
+  {
+    name: "Azure",
+    slug: "azure",
+    color: "0078D4",
+    description: "Cloud platform for backend deployment and hosting",
+    category: "Cloud",
+    proficiency: "Intermediate",
+    imageClassName: "p-0.5"
+  },
+  {
+    name: "Buildkite",
+    slug: "buildkite",
+    color: "000000",
+    description: "Cloud platform for backend deployment and hosting",
+    category: "Cloud",
+    proficiency: "Intermediate",
+    imageClassName: "p-1"
+  },
 ]

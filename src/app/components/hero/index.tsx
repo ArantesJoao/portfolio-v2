@@ -5,7 +5,7 @@ import Numbers from './numbers'
 
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center font-mono h-screen justify-center max-w-7xl mx-auto relative overflow-hidden mt-14 md:mt-0 lg:mt-20" id="top">
+    <div className="flex flex-col items-center font-mono max-w-7xl mx-auto relative overflow-hidden pt-36 md:pt-40 lg:pt-48 xl:pt-60 pb-16 sm:pb-20 lg:pb-24" id="top">
       {/* Desktop */}
       <div className="hidden -z-10 xl:block absolute translate-x-52 animate-none -top-20 inset-0 bg-[url('/diagonal-line.svg')] [mask-image:radial-gradient(circle_at_center,_rgba(0,0,0,1)_0%,_rgba(0,0,0,0)_60%)]" />
       {/* Mobile */}
