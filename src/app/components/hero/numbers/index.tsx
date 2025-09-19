@@ -14,7 +14,7 @@ const Numbers = () => {
         />
 
         <SingleData
-          number={140}
+          number={400}
           preffix="+"
           suffix="M"
           text="Impacted users"
@@ -54,7 +54,7 @@ const Numbers = () => {
         <div className="w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
 
         <SingleData
-          number={140}
+          number={400}
           preffix="+"
           suffix="M"
           text="Impacted users"

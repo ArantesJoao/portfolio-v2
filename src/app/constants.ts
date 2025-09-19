@@ -24,7 +24,7 @@ export const experiences = [
     role: "Mid-Level Frontend Engineer",
     duration: "2024 - 2025",
     description:
-      "Contributed to Mercado Libre, the largest e-commerce and fintech ecosystem in Latin America, serving 140M+ users. Improved frontend performance and usability in a complex React/Next.js microservice environment, enhancing scalability and user experience across the platform.",
+      "Contributed to Mercado Libre, the largest e-commerce and fintech ecosystem in Latin America, serving 400M+ users. Improved frontend performance and usability in a complex React/Next.js microservice environment, enhancing scalability and user experience across the platform.",
     logo: "/experiences/meli.webp",
     technologies: ["React", "Microservices", "Components Libs", "Microfrontends", "Next.js", "Express", "E-commerce"],
   },
