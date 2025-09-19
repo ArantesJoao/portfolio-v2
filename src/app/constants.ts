@@ -137,3 +137,48 @@ export const projects: ProjectCardProps[] = [
     liveDemoUrl: "https://www.joaoarantes.dev"
   },
 ]
+
+export interface SocialIcon {
+  slug: string
+  name: string
+  color: string
+  className?: string
+  imageClassName?: string
+}
+
+export interface SocialLinkData {
+  href: string
+  label: string
+  icon: "linkedin" | "github" | "email" | "download"
+  isDownload?: boolean
+  showText?: boolean
+  text?: string
+  isCopyEmail?: boolean
+}
+
+export const socialLinksData: SocialLinkData[] = [
+  {
+    href: "https://www.linkedin.com/in/joaovictorarantes/",
+    label: "LinkedIn Profile",
+    icon: "linkedin"
+  },
+  {
+    href: "https://github.com/ArantesJoao",
+    label: "GitHub Profile",
+    icon: "github"
+  },
+  {
+    href: "mailto:joaoarantes.dev@gmail.com",
+    label: "Send Email",
+    icon: "email",
+    isCopyEmail: true
+  },
+  {
+    href: "https://drive.google.com/uc?export=download&id=1gt8MPXdqpO4QsQNrBMf55OO80SaWf25Y",
+    label: "Download CV",
+    isDownload: true,
+    showText: true,
+    text: "Get my CV",
+    icon: "download"
+  }
+]
