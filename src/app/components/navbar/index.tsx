@@ -49,7 +49,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 w-auto px-4 lg:px-0">
+      <nav className={`fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 w-auto px-4 lg:px-0 transition-transform duration-1200 ease-out ${isMobileMenuOpen ? '-translate-y-32' : 'translate-y-0'}`}>
         <div className="relative backdrop-blur-md bg-slate-800/30 border border-white/10 rounded-full px-4 lg:px-6 py-2.5 lg:py-3 shadow-2xl">
           {/* Background glow effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-purple-500/10 rounded-full" />
