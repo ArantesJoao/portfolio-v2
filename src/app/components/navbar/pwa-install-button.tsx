@@ -20,10 +20,19 @@ export default function PWAInstallButton({ onClose }: PWAInstallButtonProps) {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null)
   const [isInstalled, setIsInstalled] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    // Check if app is already installed
-    if (window.matchMedia('(display-mode: standalone)').matches) {
+    // Set client-side flag to prevent hydration mismatch
+    setIsClient(true)
+
+    // Check if app is already installed using multiple methods
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+    const isIOSStandalone = 'standalone' in window.navigator && (window.navigator as { standalone?: boolean }).standalone === true
+    const isInWebAppiOS = window.matchMedia('(display-mode: standalone)').matches &&
+      /iPad|iPhone|iPod/.test(navigator.userAgent)
+
+    if (isStandalone || isIOSStandalone || isInWebAppiOS) {
       setIsInstalled(true)
       return
     }
@@ -40,6 +49,7 @@ export default function PWAInstallButton({ onClose }: PWAInstallButtonProps) {
       setDeferredPrompt(null)
     }
 
+    // Add event listeners
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
     window.addEventListener('appinstalled', handleAppInstalled)
 
@@ -51,29 +61,29 @@ export default function PWAInstallButton({ onClose }: PWAInstallButtonProps) {
 
   const handleInstallClick = async () => {
     if (!deferredPrompt) {
-      // Show helpful message for localhost testing
-      alert('PWA Install: No install prompt available. Try accessing the site via HTTPS or check browser developer tools for PWA requirements.')
       return
     }
 
     setIsLoading(true)
 
     try {
-      deferredPrompt.prompt()
+      await deferredPrompt.prompt()
       const { outcome } = await deferredPrompt.userChoice
 
       if (outcome === 'accepted') {
-        console.log('User accepted the install prompt')
         onClose() // Close mobile menu after successful install
-      } else {
-        console.log('User dismissed the install prompt')
       }
     } catch (error) {
-      console.error('Install prompt error:', error)
+      // Silent error handling for production
     } finally {
       setIsLoading(false)
       setDeferredPrompt(null)
     }
+  }
+
+  // Don't render anything on server side to prevent hydration mismatch
+  if (!isClient) {
+    return null
   }
 
   // Don't show if already installed
@@ -82,8 +92,7 @@ export default function PWAInstallButton({ onClose }: PWAInstallButtonProps) {
   }
 
   // For local testing - show button even without install prompt on localhost
-  const isLocalhost = typeof window !== 'undefined' &&
-    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
 
   // Don't show if no install prompt available (unless localhost for testing)
   if (!deferredPrompt && !isLocalhost) {
