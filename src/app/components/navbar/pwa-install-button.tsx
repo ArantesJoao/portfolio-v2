@@ -100,23 +100,7 @@ export default function PWAInstallButton({ onClose }: PWAInstallButtonProps) {
     return null
   }
 
-  // Don't show if already installed
-  if (isInstalled) {
-    return null
-  }
-
-  // For local testing - show button even without install prompt on localhost
-  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-
-  // Show button if:
-  // 1. We have a deferred prompt (Android Chrome)
-  // 2. We're on iOS (manual instructions)
-  // 3. We're on localhost (testing)
-  const shouldShowButton = deferredPrompt || isIOS || isLocalhost
-
-  if (!shouldShowButton) {
-    return null
-  }
+  // Always show the button for testing
 
   return (
     <div className="w-full">
