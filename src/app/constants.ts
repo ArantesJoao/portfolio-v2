@@ -112,7 +112,7 @@ export const projects: ProjectCardProps[] = [
   },
   {
     title: "Old Portfolio",
-    description: "My old portfolio, built with React and Next.js. Honestly, this new one looks way better than this one xD",
+    description: "My old portfolio, built with React and Next.js.",
     image: "https://raw.githubusercontent.com/ArantesJoao/portfolio/main/.github/initial_screen.png",
     techs: [
       { slug: "react", name: "React", color: "61DAFB", className: "bg-slate-800", imageClassName: "p-1" },
