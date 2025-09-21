@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import PWAInstallButton from "./pwa-install-button"
 
 interface MobileMenuProps {
   isOpen: boolean
@@ -123,6 +124,11 @@ export const MobileMenu = ({
                 </span>
               </button>
             ))}
+
+            {/* PWA Install Button */}
+            <div className="pt-2 border-t border-white/10">
+              <PWAInstallButton onClose={onClose} />
+            </div>
           </nav>
         </div>
       </div>
