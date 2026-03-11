@@ -11,6 +11,7 @@ export interface ProjectCardProps {
   title: string
   description: string
   image?: string
+  imagePosition?: "top" | "center"
   techs?: Tech[]
   githubUrl?: string
   liveDemoUrl?: string
@@ -20,6 +21,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   description,
   image,
+  imagePosition = "center",
   techs = [],
   githubUrl,
   liveDemoUrl,
@@ -40,7 +42,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             fill
             src={image}
             alt={`${title} preview`}
-            className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
+            className={`w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105 ${imagePosition === "top" ? "object-top" : "object-center"}`}
           />
         </div>
       )}

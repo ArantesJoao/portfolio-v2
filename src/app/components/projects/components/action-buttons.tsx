@@ -7,8 +7,12 @@ interface ActionButtonsProps {
 }
 
 const ActionButtons = ({ githubUrl, liveDemoUrl }: ActionButtonsProps) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation()
+  }
+
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3" onClick={handleClick} role="group" aria-label="Project links">
       {githubUrl && (
         <a
           href={githubUrl}

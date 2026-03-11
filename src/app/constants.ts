@@ -53,22 +53,16 @@ export const education: Experience[] = [
 
 export const projects: ProjectCardProps[] = [
   {
-    title: "Genius",
-    description: "This is an AI SaaS application using OpenAI and Replicate. It is fully functional, you can go ahead, create your own account through Clerk and even signup to the Pro plan via Stripe to test everything! (don't worry, you won't be charged, Stripe is on test mode!).",
-    image: "/projects/genius_landing_page.png",
+    title: "Newsly",
+    description: "Co-founded Newsly, the Brazilian Email Marketing Library, a platform to find references, analyze competitors, and create more effective campaigns. As Principal Frontend Engineer I built the frontend: Next.js 14 app with React 18, shadcn/ui, TanStack Query, React Hook Form + Zod, Framer Motion, Zustand, and Tailwind. Monitored with Sentry.",
+    image: "/projects/newsly.png",
+    imagePosition: "top",
     techs: [
       { slug: "react", name: "React", color: "61DAFB", className: "bg-slate-800", imageClassName: "p-1" },
       { slug: "nextdotjs", name: "Next.js", color: "000000", className: "bg-white" },
       { slug: "tailwindcss", name: "Tailwind CSS", color: "06B6D4", className: "bg-white", imageClassName: "p-1" },
-      { slug: "shadcnui", name: "Shadcn UI", color: "000000", className: "bg-white", imageClassName: "p-2" },
-      { slug: "clerk", name: "Clerk", color: "6C47FF", className: "bg-white", imageClassName: "p-1 -translate-x-[3px]" },
-      { slug: "stripe", name: "Stripe", color: "635BFF", className: "bg-white", imageClassName: "p-1.5" },
-      { slug: "openai", name: "OpenAI", color: "1E1E1E", className: "bg-white", imageClassName: "p-1" },
-      { slug: "replicate", name: "Replicate", color: "000000", className: "bg-white", imageClassName: "p-2" },
-      { slug: "vercel", name: "Vercel", color: "000000", className: "bg-white", imageClassName: "p-2" }
     ],
-    githubUrl: "https://github.com/ArantesJoao/genius",
-    liveDemoUrl: "https://genius-joo-vctor-arantes-projects.vercel.app/"
+    liveDemoUrl: "https://newsly.com.br",
   },
   {
     title: "Wild.io",
