@@ -65,6 +65,50 @@ export const projects: ProjectCardProps[] = [
     liveDemoUrl: "https://newsly.com.br",
   },
   {
+    title: "trigo etc",
+    description: "A mobile-first ordering PWA built for trigo etc, an artisanal bakery in Florianópolis. Customers browse the menu, build a cart, and place an order that's handed off to WhatsApp to confirm — no payment friction. Ships with a Google-gated admin panel to manage sections, products, and orders, plus a custom data-caching layer. Built for a local business, so the UI is Portuguese-only.",
+    image: "/projects/trigo-etc.png",
+    imagePosition: "center",
+    techs: [
+      { slug: "nextdotjs", name: "Next.js", color: "000000", className: "bg-white" },
+      { slug: "typescript", name: "TypeScript", color: "3178C6", className: "bg-white", imageClassName: "p-1" },
+      { slug: "prisma", name: "Prisma", color: "2D3748", className: "bg-white", imageClassName: "p-1" },
+      { slug: "postgresql", name: "PostgreSQL", color: "4169E1", className: "bg-white", imageClassName: "p-1" },
+      { slug: "tailwindcss", name: "Tailwind CSS", color: "06B6D4", className: "bg-white", imageClassName: "p-1" },
+    ],
+    liveDemoUrl: "https://trigo-etc.com",
+  },
+  {
+    title: "StayRank",
+    description: "Plan a trip with friends and agree on where to stay. Everyone ranks their top 3 accommodations per city with a note, and StayRank tallies the votes into a leaderboard so the group can see the option they agree on the most. Installable PWA with Google sign-in and link-preview images.",
+    image: "/projects/stayrank.png",
+    imagePosition: "center",
+    techs: [
+      { slug: "nextdotjs", name: "Next.js", color: "000000", className: "bg-white" },
+      { slug: "typescript", name: "TypeScript", color: "3178C6", className: "bg-white", imageClassName: "p-1" },
+      { slug: "prisma", name: "Prisma", color: "2D3748", className: "bg-white", imageClassName: "p-1" },
+      { slug: "postgresql", name: "PostgreSQL", color: "4169E1", className: "bg-white", imageClassName: "p-1" },
+      { slug: "tailwindcss", name: "Tailwind CSS", color: "06B6D4", className: "bg-white", imageClassName: "p-1" },
+    ],
+    githubUrl: "https://github.com/ArantesJoao/stayrank",
+    liveDemoUrl: "https://stayrank.app",
+  },
+  {
+    title: "Yieldly",
+    description: "A personal finance tracker focused on investment yields. Log balances across accounts, record deposits and withdrawals, and watch your daily yield and total balance trend over time with clean charts. Money is handled in integer minor units for precision, behind a roles-based authorization layer.",
+    image: "/projects/yieldly.png",
+    imagePosition: "center",
+    techs: [
+      { slug: "nextdotjs", name: "Next.js", color: "000000", className: "bg-white" },
+      { slug: "typescript", name: "TypeScript", color: "3178C6", className: "bg-white", imageClassName: "p-1" },
+      { slug: "prisma", name: "Prisma", color: "2D3748", className: "bg-white", imageClassName: "p-1" },
+      { slug: "reactquery", name: "TanStack Query", color: "FF4154", className: "bg-white", imageClassName: "p-1" },
+      { slug: "tailwindcss", name: "Tailwind CSS", color: "06B6D4", className: "bg-white", imageClassName: "p-1" },
+    ],
+    githubUrl: "https://github.com/ArantesJoao/yieldly",
+    liveDemoUrl: "https://yieldly-sepia.vercel.app",
+  },
+  {
     title: "Wild.io",
     description: "This was my final college project! It fosters public engagement with city parks, encouraging the documentation of urban flora and fauna.",
     image: "/projects/wild-io.webp",
@@ -91,20 +135,6 @@ export const projects: ProjectCardProps[] = [
     liveDemoUrl: "https://rent-website-clone-arantes.vercel.app/"
   },
   {
-    title: "Ignite Call",
-    description: "Ignite Call allows users to book appointments with each other. These bookings are automatically added to your linked Google Calendar! Project developed on a Rocketseat Bootcamp.",
-    image: "/projects/ignite.webp",
-    techs: [
-      { slug: "react", name: "React", color: "61DAFB", className: "bg-slate-800", imageClassName: "p-1" },
-      { slug: "nextdotjs", name: "Next.js", color: "000000", className: "bg-white" },
-      { slug: "vercel", name: "Vercel", color: "000000", className: "bg-white", imageClassName: "p-2" },
-      { slug: "mysql", name: "MySQL", color: "4479A1", className: "bg-white", imageClassName: "p-1.5" },
-      { slug: "prisma", name: "Prisma", color: "2D3748", className: "bg-white", imageClassName: "p-1" },
-    ],
-    githubUrl: "https://github.com/ArantesJoao/ignite-call",
-    liveDemoUrl: "https://ignite-call-psi-peach.vercel.app"
-  },
-  {
     title: "Old Portfolio",
     description: "My old portfolio, built with React and Next.js.",
     image: "https://raw.githubusercontent.com/ArantesJoao/portfolio/main/.github/initial_screen.png",
@@ -115,20 +145,6 @@ export const projects: ProjectCardProps[] = [
       { slug: "vercel", name: "Vercel", color: "000000", className: "bg-white", imageClassName: "p-2" }
     ],
     githubUrl: "https://github.com/ArantesJoao/portfolio",
-  },
-  {
-    title: "Portfolio V2",
-    description: "My portfolio listed in my portfolio. I'm trying to think of an Inception joke here.",
-    image: "/projects/portfolio.png",
-    techs: [
-      { slug: "react", name: "React", color: "61DAFB", className: "bg-slate-800", imageClassName: "p-1" },
-      { slug: "nextdotjs", name: "Next.js", color: "000000", className: "bg-white" },
-      { slug: "tailwindcss", name: "Tailwind CSS", color: "06B6D4", className: "bg-white", imageClassName: "p-1" },
-      { slug: "vercel", name: "Vercel", color: "000000", className: "bg-white", imageClassName: "p-2" },
-      { slug: "shadcnui", name: "Shadcn UI", color: "000000", className: "bg-white", imageClassName: "p-2" },
-    ],
-    githubUrl: "https://github.com/ArantesJoao/portfolio-v2",
-    liveDemoUrl: "https://www.joaoarantes.dev"
   },
 ]
 
