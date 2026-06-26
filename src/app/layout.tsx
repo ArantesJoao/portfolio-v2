@@ -60,17 +60,17 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               if ('serviceWorker' in navigator) {
+                // When a new service worker takes control, reload once so the
+                // page picks up fresh chunks instead of stale cached ones.
+                var hadController = !!navigator.serviceWorker.controller;
+                var refreshing = false;
+                navigator.serviceWorker.addEventListener('controllerchange', function() {
+                  if (refreshing || !hadController) return;
+                  refreshing = true;
+                  window.location.reload();
+                });
                 window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js')
-                    .then(function(registration) {
-                      // Check for updates
-                      registration.addEventListener('updatefound', function() {
-                        // Service worker update found
-                      });
-                    })
-                    .catch(function(error) {
-                      // Service worker registration failed
-                    });
+                  navigator.serviceWorker.register('/sw.js').catch(function() {});
                 });
               }
             `,

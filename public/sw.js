@@ -1,4 +1,5 @@
-const CACHE_NAME = 'portfolio-v2-cache-v2';
+const CACHE_NAME = 'portfolio-v2-cache-v3';
+const OFFLINE_URL = '/';
 const urlsToCache = [
   '/',
   '/manifest.json',
@@ -6,41 +7,56 @@ const urlsToCache = [
   '/icons/icon-512x512.png',
 ];
 
-// Install event - cache resources
+// Install event - precache the offline fallback + static assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll(urlsToCache);
-      })
-      .then(() => {
-        return self.skipWaiting();
-      })
+      .then((cache) => cache.addAll(urlsToCache))
+      .then(() => self.skipWaiting())
   );
 });
 
-// Fetch event - serve from cache when offline
+// Fetch event
 self.addEventListener('fetch', (event) => {
-  // Skip cross-origin requests
-  if (!event.request.url.startsWith(self.location.origin)) {
+  const { request } = event;
+
+  // Only handle same-origin GET requests
+  if (request.method !== 'GET' || !request.url.startsWith(self.location.origin)) {
     return;
   }
 
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
-        if (response) {
+  // Navigations (HTML documents) -> network-first.
+  // The document references hashed JS/CSS chunks, so it must never be served
+  // stale: an old cached HTML points at chunks that 404 after a redeploy.
+  if (request.mode === 'navigate' || request.destination === 'document') {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          // Keep the offline fallback fresh
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(OFFLINE_URL, copy));
           return response;
-        }
+        })
+        .catch(() => caches.match(OFFLINE_URL))
+    );
+    return;
+  }
 
-        return fetch(event.request).catch(() => {
-          // If both cache and network fail, return offline page for navigation requests
-          if (event.request.destination === 'document') {
-            return caches.match('/');
-          }
-        });
-      })
+  // Everything else (hashed static assets, images) -> cache-first.
+  // These filenames are content-hashed and immutable, so caching is safe.
+  event.respondWith(
+    caches.match(request).then((cached) => {
+      if (cached) {
+        return cached;
+      }
+      return fetch(request).then((response) => {
+        if (response && response.status === 200 && response.type === 'basic') {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+        }
+        return response;
+      });
+    })
   );
 });
 
@@ -57,8 +73,6 @@ self.addEventListener('activate', (event) => {
           })
         );
       })
-      .then(() => {
-        return self.clients.claim();
-      })
+      .then(() => self.clients.claim())
   );
 });
